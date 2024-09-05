@@ -1,0 +1,59 @@
+@use "sass:map";
+
+@font-face {
+    font-family: 'Alata';
+    src: url('./assets/Alata-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./assets/JosefinSans-Light.ttf');
+}
+
+$font: 'Alata';
+$font-hero: 'Josefin Sans';
+
+$White: hsl(0, 0%, 100%);
+$Black: hsl(0, 0%, 0%);
+$Dark-Gray: hsl(0, 0%, 55%);
+$Very-Dark-Gray: hsl(0, 0%, 41%);
+
+@mixin hover-underline-effect {
+    &::after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      background-color: $White;
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+      transform-origin: right;
+      top: -12px;
+    }
+  
+    &:hover {
+      &::after {
+        transform: scale(1);
+        transform-origin: left;
+      }
+    }
+}
+
+$breakpoints-map: (
+  phone: 425px,
+  tablet: 768px
+);
+
+@mixin respond-to($breakpoints...) {
+  @each $breakpoint in $breakpoints {
+    $size: map.get($breakpoints-map, $breakpoint);
+    @if $size {
+      @media (max-width: $size) {
+        @content;
+      }
+    } @else {
+      @warn "Breakpoint #{$breakpoint} not found in \$breakpoints-map.";
+    }
+  }
+}
