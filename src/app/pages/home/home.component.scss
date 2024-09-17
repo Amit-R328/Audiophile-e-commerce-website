@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 12.5rem;
+    header {
+        display: flex;
+        background-image: url('https://res.cloudinary.com/dcbbqlssh/image/upload/v1725440928/Audiophile%20e-commerce%20website/home/desktop/image-hero_brgix7.jpg');
+        background-position: left 48% top 45%;
+        height: 45.5625em;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 10.5rem;
+    }
+}

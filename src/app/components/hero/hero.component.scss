@@ -1,0 +1,31 @@
+@import '../../../variables.scss';
+
+:host {
+    margin: 0 auto;
+    height: 39.5em;
+    display: flex;
+    align-items: center;
+    width: 69.375rem;
+    .hero {
+        width: 24.875em;
+        height: 21.625em;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        .hero-product-tag {
+            @include overline($font-regular, #8c8c8c);
+        }
+        .hero-product-title {
+            @include h1-style($font-bold);
+            color: $White;
+        }
+        .hero-product-description {
+            @include body($font-medium, #9c9c9c);
+            width: 42ch;
+        }
+        .hero-product-cta {
+            margin-top: 16px;
+            @include button1($Orange, $White, $font-bold, $Light-orange);
+        }
+    }
+}

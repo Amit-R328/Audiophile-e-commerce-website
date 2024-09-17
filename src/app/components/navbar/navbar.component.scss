@@ -1,0 +1,33 @@
+@import '../../../_variables.scss';
+
+:host{
+    nav {
+        display: flex;
+        justify-content: space-between;
+        ul {
+            display: flex;
+            gap: 34px;
+            align-items: center;
+            li {
+                list-style: none;
+                a {
+                    text-decoration: none;
+                    display: flex;
+                    align-items: flex-end;
+                    color: $White;
+                    font-family: $font-bold;
+                    font-size: 0.8125em;
+                    line-height: 1.5625em;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    position: relative;
+                    transition: color 0.3s ease-in-out;
+                    &:hover {
+                        color: $Orange;
+                    }
+                }
+            }
+        }
+    
+    }
+}

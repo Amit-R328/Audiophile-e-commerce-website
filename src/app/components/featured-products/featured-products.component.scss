@@ -1,0 +1,9 @@
+:host {
+  width: 69.375rem;
+  .featured-products {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+  }
+}

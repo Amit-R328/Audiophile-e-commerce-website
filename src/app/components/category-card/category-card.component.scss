@@ -1,0 +1,42 @@
+@import '../../../variables.scss';
+
+:host {
+  display: flex;
+  .category-card {
+    background-color: #f1f1f1; // Gray background color
+    width: 21.875rem;
+    height: 12.75rem;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    .category-card-content {
+        .category-img {
+        width: 60%;
+        position: absolute; 
+        top: -62px; 
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      h2 {
+        margin-top: 116px;
+        @include h6-style($font-bold);
+        line-height: normal;
+        letter-spacing: 0.081rem;
+      }
+      a {
+        display: inline-block;
+        margin-top: 0.938rem;
+        font-size: 0.813rem;
+        text-decoration: none;
+        color: #9c9c9c;
+        text-transform: uppercase;
+        font-family: $font-bold;
+        .arrow-right {
+          height: 0.625rem;
+          width: 0.313rem;
+          margin-left: 0.833rem;
+        }
+      }
+    }
+  }
+}

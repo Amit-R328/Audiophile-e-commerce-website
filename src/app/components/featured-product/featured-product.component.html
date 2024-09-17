@@ -1,0 +1,21 @@
+<div
+  class="featured-product"
+  [ngStyle]="{ 'background-color': product.background || '#fff' }"
+>
+  <div
+    class="product-content"
+    [ngClass]="{
+      left: product.layout === 'left',
+      right: product.layout === 'right',
+      center: product.layout === 'center'
+    }"
+  >
+    <div class="product-info">
+      <h2 class="product-title">{{ product.title }}</h2>
+      <p class="product-description" *ngIf="product.description">
+        {{ product.description }}
+      </p>
+      <a [routerLink]="product.link" class="product-link">See Product</a>
+    </div>
+  </div>
+</div>
