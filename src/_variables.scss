@@ -22,6 +22,7 @@ $font-regular: 'Manrope-Regular';
 $Orange: rgba(216, 125, 74, 1);
 $Very-Dark-Gray: rgba(16, 16, 16, 1);
 $Gray: rgba(241, 241, 241, 1);
+$Dark-Gray: rgba(156, 156, 156, 1);
 $Off-White: rgba(250, 250, 250, 1);
 $Light-orange: rgba(251, 175, 133, 1);
 $White: rgba(255, 255, 255, 1);
@@ -124,14 +125,15 @@ $Black: rgba(0, 0, 0, 1);
   color: $Black;
   background-color: $White;
   border: 1px solid $Black;
-  width: 10em;
-  height: 3em;
+  width: 10rem;
+  height: 3rem;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
   &:hover {
     color: $White;
     background-color: $Black;
   }
+  display: block;
 }
 
 @mixin hover-underline-effect {

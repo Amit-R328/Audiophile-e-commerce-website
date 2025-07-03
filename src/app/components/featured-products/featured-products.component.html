@@ -1,7 +1,45 @@
 <div class="featured-products">
-  <app-featured-product
-    *ngFor="let product of featuredProducts"
-    [product]="product"
-  >
-  </app-featured-product>
+    <div class="product product-zx9">
+        <div class="product-image">
+            <picture>
+                <source media="(min-width: 1024px)" [srcset]="featuredProducts[0].images.desktop">
+                <source media="(min-width: 768px)" [srcset]="featuredProducts[0].images.tablet">
+                <img [src]="featuredProducts[0].images.mobile" [alt]="featuredProducts[0].title">
+            </picture>
+            <img class="circles" [src]="featuredProducts[0].images.circles" alt="Decorative circles">
+        </div>
+        <div class="product-info">
+            <h1>{{ featuredProducts[0].title }}</h1>
+            <p>{{ featuredProducts[0].description }}</p>
+            <button class="btn">SEE PRODUCT</button>
+        </div>
+    </div>
+
+    <div class="product product-zx7">
+        <picture>
+            <source media="(min-width: 1024px)" [srcset]="featuredProducts[1].images.desktop">
+            <source media="(min-width: 768px)" [srcset]="featuredProducts[1].images.tablet">
+            <img [src]="featuredProducts[1].images.mobile" [alt]="featuredProducts[1].title">
+        </picture>
+        <div class="product-info">
+            <h2>{{ featuredProducts[1].title }}</h2>
+            <button class="btn btn-outline">SEE PRODUCT</button>
+        </div>
+    </div>
+
+    <div class="product product-yx1">
+        <div class="product-image">
+            <picture>
+                <source media="(min-width: 1024px)" [srcset]="featuredProducts[2].images.desktop">
+                <source media="(min-width: 768px)" [srcset]="featuredProducts[2].images.tablet">
+                <img [src]="featuredProducts[2].images.mobile" [alt]="featuredProducts[2].title">
+            </picture>
+        </div>
+        <div class="product-info">
+            <div class="inner-wrapper-info">
+                <h2>{{ featuredProducts[2].title }}</h2>
+                <button class="btn btn-outline">SEE PRODUCT</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -20,7 +20,7 @@
             color: $White;
         }
         .hero-product-description {
-            @include body($font-medium, #9c9c9c);
+            @include body($font-medium, $Dark-Gray);
             width: 42ch;
         }
         .hero-product-cta {

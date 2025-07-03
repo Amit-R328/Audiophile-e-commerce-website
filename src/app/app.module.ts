@@ -12,7 +12,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
-import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
+import { AboutSectionComponent } from './components/about-section/about-section.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FeaturedProductComponent } from './components/featured-product/featured
     CategoriesComponent,
     CategoryCardComponent,
     FeaturedProductsComponent,
-    FeaturedProductComponent
+    AboutSectionComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

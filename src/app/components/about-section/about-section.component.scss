@@ -1,0 +1,59 @@
+@import '../../../variables.scss';
+
+.audiophile-about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1110px;
+    margin: 0 auto;
+
+    .about-content {
+        flex: 1;
+        margin-right: 7.813rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .title {
+            @include h2-style($font-bold);
+            letter-spacing: 0.089px;
+            
+            span {
+                color: $Orange;
+            }
+        }
+
+        .description {
+            @include body($font-regular, $Dark-Gray);
+            font-weight: 500;
+            width: 48ch;
+        }
+    }
+
+    .about-image {
+        flex: 1;
+
+        picture {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+
+        .about-content {
+            margin-right: 0;
+            margin-bottom: 2rem;
+        }
+    }
+}

@@ -1,0 +1,81 @@
+@import '../../../variables.scss';
+
+.footer {
+    margin: auto auto;
+    display: flex;
+    flex-direction: row;
+    max-width: 1110px;
+    justify-content: space-between;
+    .left-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2.25rem;
+        .brand {
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: $White;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 3505px;  
+                left: 24%;
+                width: 101px; 
+                height: 4px; 
+                background-color: $Orange;
+                transform: translateX(-50%);
+            }
+        }
+        .description {
+            @include body($font-medium, $Dark-Gray);
+            width: 64ch;
+        }
+        .copyrights {
+            margin-top: 1.25rem;
+            @include body($font-bold, $Dark-Gray);
+        }
+    }
+    .right-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 6.563rem;
+        .links {
+            nav{
+                ul{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 2.125rem;
+                    li {
+                        list-style: none;
+                        a {
+                            text-decoration: none;
+                            color: $Off-White;
+                            cursor: pointer;
+                            font-family: $font-bold;
+                            font-size: 0.813rem;
+                            line-height: 1.563rem;
+                            letter-spacing: 0.125rem;
+                            &:hover {
+                                @include hover-underline-effect;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .socials {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-end;
+            a {
+                text-decoration: none;
+                color: $White;
+                font-size: 1.25rem;
+                &:hover {
+                    color: $Orange;
+                }
+            }
+        }
+    }
+}
