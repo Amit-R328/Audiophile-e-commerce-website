@@ -1,40 +1,75 @@
-@import '../../../variables.scss';
+@import 'variables.scss';
 
 :host {
   display: flex;
-  .category-card {
-    background-color: #f1f1f1; // Gray background color
-    width: 21.875rem;
-    height: 12.75rem;
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
-    .category-card-content {
-        .category-img {
-        width: 60%;
-        position: absolute; 
-        top: -62px; 
+  flex: 1;
+  min-width: 0;
+
+  a {
+    display: inline-block;
+    height: inherit;
+    width: 100%;
+    font-size: 0.813rem;
+    text-decoration: none;
+    color: $Dark-Gray;
+    text-transform: uppercase;
+    font-family: $font-bold;
+
+    .category-card {
+      background-color: #f1f1f1;
+      width: 100%;
+      max-width: 21.875rem;
+      height: 204px;
+      border-radius: 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .category-img {
+        height: 100%;
+        position: absolute;
+        top: -77px;
         left: 50%;
         transform: translateX(-50%);
       }
+
       h2 {
-        margin-top: 116px;
         @include h6-style($font-bold);
         line-height: normal;
-        letter-spacing: 0.081rem;
-      }
-      a {
-        display: inline-block;
-        margin-top: 0.938rem;
-        font-size: 0.813rem;
-        text-decoration: none;
-        color: $Dark-Gray;
+        color: #000;
+        text-align: center;
+        padding: 0 1.25rem;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.286px;
         text-transform: uppercase;
-        font-family: $font-bold;
+        margin-top: 115px;
+        letter-spacing: 0.081rem;
+        font-size: 18px;
+      }
+
+      p {
+        margin-top: 15px;
+        font-size: 13px;
+        padding: 2.5px 0px;
+        color: #000;
+        font-family: 'Manrope-Bold';
+        opacity: 0.5;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
         .arrow-right {
-          height: 0.625rem;
-          width: 0.313rem;
           margin-left: 0.833rem;
+          stroke-width: 2px;
+          stroke: #D87D4A;
+          margin-left: 10px;
         }
       }
     }

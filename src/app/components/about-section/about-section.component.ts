@@ -9,9 +9,9 @@ export class AboutSectionComponent implements OnInit {
 
   aboutSection = {
     imageUrl: {
-      desktop: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1725440924/Audiophile%20e-commerce%20website/shared/desktop/image-best-gear_uvgmrg.jpg",
-      tablet: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1725440926/Audiophile%20e-commerce%20website/shared/tablet/image-best-gear_tnocon.jpg",
-      mobile: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1725440925/Audiophile%20e-commerce%20website/shared/mobile/image-best-gear_b48tnl.jpg"
+      desktop: "https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776451597/shared/desktop/image-best-gear_no9qfa.jpg",
+      tablet: "https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776451613/shared/tablet/image-best-gear_oivv0v.jpg",
+      mobile: "https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776451607/shared/mobile/image-best-gear_ssvscq.jpg"
     }
   }
 

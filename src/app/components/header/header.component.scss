@@ -1,9 +1,72 @@
 :host {
     margin: 0 auto;
-    width: 69.375rem;
-    padding: 35px 0px 36px 0px;
+    max-width: 69.375rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 35px 24px 36px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
     border-bottom: 0.1rem solid #353535;
+    height: 6rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    width: 16px;
+    height: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+        display: block;
+        width: 16px;
+        height: 3px;
+        background-color: #fff;
+    }
+}
+
+@media (max-width: 1023px) {
+    :host {
+        justify-content: flex-start;
+        gap: 42px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    app-logo {
+        margin-right: auto;
+    }
+
+    app-navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        z-index: 100;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        opacity: 1;
+    }
+
+    :host(.menu-open) app-navbar {
+        max-height: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    :host {
+        gap: 24px;
+    }
 }

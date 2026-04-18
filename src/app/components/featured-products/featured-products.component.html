@@ -1,12 +1,12 @@
 <div class="featured-products">
     <div class="product product-zx9">
         <div class="product-image">
+            <img class="circles" [src]="featuredProducts[0].images.circles" alt="" aria-hidden="true">
             <picture>
                 <source media="(min-width: 1024px)" [srcset]="featuredProducts[0].images.desktop">
                 <source media="(min-width: 768px)" [srcset]="featuredProducts[0].images.tablet">
                 <img [src]="featuredProducts[0].images.mobile" [alt]="featuredProducts[0].title">
             </picture>
-            <img class="circles" [src]="featuredProducts[0].images.circles" alt="Decorative circles">
         </div>
         <div class="product-info">
             <h1>{{ featuredProducts[0].title }}</h1>

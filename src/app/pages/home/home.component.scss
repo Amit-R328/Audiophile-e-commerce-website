@@ -1,14 +1,16 @@
-@import '../../../_variables.scss';
+@import '_variables.scss';
 
 :host {
     display: flex;
     flex-direction: column;
-    gap: 12.5rem;
+    gap: 200px;
     background-color: $White;
     header {
         display: flex;
-        background-image: url('https://res.cloudinary.com/dcbbqlssh/image/upload/v1725440928/Audiophile%20e-commerce%20website/home/desktop/image-hero_brgix7.jpg');
+        background-image: url('https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452033/home/desktop/image-hero_d72q7d.jpg');
         background-position: left 48% top 45%;
+        background-repeat: no-repeat;
+        background-size: cover;
         height: 45.5625em;
         display: flex;
         width: 100%;
@@ -22,8 +24,30 @@
     footer {
         display: flex;
         flex-direction: column;
-        height: 22.813rem;
+        min-height: 22.813rem;
         background-color: $Very-Dark-Gray;
         justify-content: center;
+    }
+
+    @media (max-width: 1023px) {
+        gap: 120px;
+
+        header {
+            background-position: right 13% top 45%;
+            background-size: auto 100%;
+        }
+
+        main {
+            gap: 6rem;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        header {
+            background-position: right 27% top 45%;
+            background-size: auto 100%;
+        }
+
     }
 }

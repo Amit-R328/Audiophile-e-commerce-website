@@ -1,9 +1,11 @@
-<div class="category-card">
-  <div class="category-card-content">
+<a [routerLink]="['/category', category.link]">
+  <div class="category-card">
     <img class="category-img" [src]="category.img" [alt]="category.alt" />
     <h2>{{ category.title }}</h2>
-    <a [routerLink]="['/category', category.link]">Shop
-        <img src="https://res.cloudinary.com/dcbbqlssh/image/upload/v1725440922/Audiophile%20e-commerce%20website/shared/desktop/icon-arrow-right_ehhdih.svg" class="arrow-right" alt="arrow right" />
-    </a>
+    <p>Shop
+      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none" class="arrow-right">
+        <path d="M1.3219 1L6.3219 6L1.3219 11" stroke="#D87D4A" stroke-width="2" />
+      </svg>
+    </p>
   </div>
-</div>
+</a>

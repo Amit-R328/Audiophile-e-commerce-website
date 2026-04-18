@@ -1,7 +1,14 @@
-@import "../../../variables.scss";
+@import "variables.scss";
 
-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+:host {
+    margin-bottom: 6px;
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    
+        svg {
+            flex-shrink: 0;
+        }
+    }
 }

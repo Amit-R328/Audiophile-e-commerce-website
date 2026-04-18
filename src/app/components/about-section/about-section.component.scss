@@ -1,12 +1,13 @@
-@import '../../../variables.scss';
+@import 'variables.scss';
 
 .audiophile-about {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
     max-width: 1110px;
     margin: 0 auto;
+    padding: 32px 24px 0;
+    box-sizing: border-box;
 
     .about-content {
         flex: 1;
@@ -17,8 +18,14 @@
 
         .title {
             @include h2-style($font-bold);
-            letter-spacing: 0.089px;
-            
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 44px;
+            /* 110% */
+            letter-spacing: 1.429px;
+            text-transform: uppercase;
+
             span {
                 color: $Orange;
             }
@@ -41,19 +48,41 @@
         }
 
         img {
-            max-width: 100%;
-            height: auto;
             border-radius: 8px;
+            width: 100%;
+            height: auto;
+            display: block;
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) {
         flex-direction: column;
         text-align: center;
+        gap: 4rem;
 
         .about-content {
             margin-right: 0;
-            margin-bottom: 2rem;
+            order: 2;
+            align-items: center;
+
+            .description {
+                width: auto;
+                max-width: 573px;
+                margin: 0 auto;
+            }
+        }
+
+        .about-image {
+            order: 1;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .about-content {
+            .title {
+                font-size: 28px;
+            }
         }
     }
 }

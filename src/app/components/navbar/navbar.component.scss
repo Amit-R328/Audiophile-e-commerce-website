@@ -1,13 +1,13 @@
-@import '../../../_variables.scss';
+@import 'variables.scss';
 
 :host{
     nav {
-        display: flex;
-        justify-content: space-between;
         ul {
-            display: flex;
+            display: inline-flex;
+            padding-right: 2px;
             gap: 34px;
-            align-items: center;
+            align-items: flex-start;
+            justify-content: center;
             li {
                 list-style: none;
                 a {
@@ -16,6 +16,8 @@
                     align-items: flex-end;
                     color: $White;
                     font-family: $font-bold;
+                    font-weight: 700;
+                    font-style: normal;
                     font-size: 0.8125em;
                     line-height: 1.5625em;
                     letter-spacing: 2px;
@@ -28,6 +30,29 @@
                 }
             }
         }
-    
+
+    }
+
+    @media (max-width: 1023px) {
+        display: block;
+        width: 100%;
+
+        nav {
+            padding: 24px;
+            box-sizing: border-box;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+                padding: 0;
+
+                li a {
+                    color: $Black;
+                    font-size: 1rem;
+                }
+            }
+        }
     }
 }
