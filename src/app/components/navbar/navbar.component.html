@@ -5,4 +5,10 @@
     <li><a routerLink="/category/speakers">Speakers</a></li>
     <li><a routerLink="/category/earphones">Earphones</a></li>
   </ul>
+  <div class="menu-cards">
+    <app-category-card
+      *ngFor="let card of menuCards"
+      [category]="card">
+    </app-category-card>
+  </div>
 </nav>

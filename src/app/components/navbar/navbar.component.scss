@@ -33,26 +33,56 @@
 
     }
 
+    .menu-cards {
+        display: none;
+    }
+
     @media (max-width: 1023px) {
         display: block;
         width: 100%;
 
         nav {
-            padding: 24px;
+            padding: 56px 40px 35px;
             box-sizing: border-box;
 
             ul {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                width: 100%;
-                padding: 0;
+                display: none;
+            }
 
-                li a {
-                    color: $Black;
-                    font-size: 1rem;
-                }
+            .menu-cards {
+                display: flex;
+                gap: 10px;
+                justify-content: space-between;
             }
         }
+    }
+
+    @media (max-width: 600px) {
+        nav {
+            padding: 88px 24px 35px;
+
+            .menu-cards {
+                flex-direction: column;
+                gap: 68px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    ::ng-deep .menu-cards .category-card {
+        height: 165px !important;
+    }
+    ::ng-deep .menu-cards .category-card h2 {
+        margin-top: 88px !important;
+        font-size: 15px !important;
+    }
+    ::ng-deep .menu-cards .category-card .category-img {
+        height: auto !important;
+        max-height: 130px !important;
+        top: -50px !important;
+    }
+    ::ng-deep .menu-cards .category-card p {
+        margin-top: 8px !important;
     }
 }

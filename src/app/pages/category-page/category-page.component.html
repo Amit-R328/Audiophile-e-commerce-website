@@ -1,0 +1,22 @@
+<header class="page-header">
+  <app-header></app-header>
+  <div class="page-header__banner">
+    <h1 class="page-header__title">{{ category }}</h1>
+  </div>
+</header>
+
+<main class="category-main">
+  <section class="category-products">
+    <app-product-preview
+      *ngFor="let product of products$ | async"
+      [product]="product">
+    </app-product-preview>
+  </section>
+
+  <app-categories></app-categories>
+  <app-about-section></app-about-section>
+</main>
+
+<footer class="page-footer">
+  <app-footer></app-footer>
+</footer>

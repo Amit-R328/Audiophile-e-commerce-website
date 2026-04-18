@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,11 +16,13 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { AboutSectionComponent } from './components/about-section/about-section.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductPreviewComponent } from './components/product-preview/product-preview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CategoryPageComponent,
     HeaderComponent,
     LogoComponent,
     NavbarComponent,
@@ -29,9 +33,11 @@ import { FooterComponent } from './components/footer/footer.component';
     FeaturedProductsComponent,
     AboutSectionComponent,
     FooterComponent,
+    ProductPreviewComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

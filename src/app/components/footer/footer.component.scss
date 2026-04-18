@@ -116,33 +116,31 @@
         }
 
         .brand {
-            grid-column: 1;
+            grid-column: 1 / -1;
             grid-row: 1;
-            align-self: center;
         }
 
         .links {
-            grid-column: 2;
-            grid-row: 1;
-            align-self: center;
+            grid-column: 1 / -1;
+            grid-row: 2;
         }
 
         .description {
             grid-column: 1 / -1;
-            grid-row: 2;
+            grid-row: 3;
             max-width: none;
         }
 
         .copyrights {
             grid-column: 1;
-            grid-row: 3;
+            grid-row: 4;
             margin-top: 0;
             align-self: center;
         }
 
         .socials {
             grid-column: 2;
-            grid-row: 3;
+            grid-row: 4;
             align-self: center;
             margin-top: 0;
         }

@@ -53,6 +53,7 @@
         left: 0;
         right: 0;
         background-color: #fff;
+        border-radius: 0 0 8px 8px;
         z-index: 100;
         max-height: 0;
         overflow: hidden;
@@ -61,7 +62,19 @@
     }
 
     :host(.menu-open) app-navbar {
-        max-height: 600px;
+        max-height: 1200px;
+    }
+
+    :host(.menu-open)::after {
+        content: '';
+        position: fixed;
+        top: 6rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 99;
+        pointer-events: none;
     }
 }
 

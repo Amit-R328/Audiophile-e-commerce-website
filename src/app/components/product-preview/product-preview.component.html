@@ -1,0 +1,16 @@
+<article class="product-preview">
+  <div class="product-preview__image">
+    <picture>
+      <source media="(min-width: 1024px)" [srcset]="product.categoryImage.desktop">
+      <source media="(min-width: 768px)" [srcset]="product.categoryImage.tablet">
+      <img [src]="product.categoryImage.mobile" [alt]="product.name">
+    </picture>
+  </div>
+
+  <div class="product-preview__info">
+    <p *ngIf="product.new" class="product-preview__tag">NEW PRODUCT</p>
+    <h2 class="product-preview__name">{{ product.name }}</h2>
+    <p class="product-preview__description">{{ product.description }}</p>
+    <a class="product-preview__cta" [routerLink]="['/product', product.slug]">SEE PRODUCT</a>
+  </div>
+</article>
