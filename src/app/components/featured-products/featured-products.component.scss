@@ -41,7 +41,7 @@
       }
 
       .btn {
-        @include button1($Black, $White, $font-bold, $Light-orange);
+        @include button1($Black, $White, $font-bold, #4C4C4C);
         border: unset;
         z-index: 1;
         position: relative;
@@ -116,6 +116,9 @@
     .product-info {
       left: 71px;
       color: #000;
+      .btn {
+        @include button1($Black, $White, $font-bold, $Black);
+      }
     }
   }
 
@@ -136,6 +139,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      .btn {
+        @include button1($Black, $White, $font-bold, $Black);
       }
     }
 

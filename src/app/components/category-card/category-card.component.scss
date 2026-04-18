@@ -26,6 +26,11 @@
       flex-direction: column;
       position: relative;
 
+      &:hover p {
+        color: #D87D4A;
+        opacity: unset;
+      }
+
       .category-img {
         height: 100%;
         position: absolute;
