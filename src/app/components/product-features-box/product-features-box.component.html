@@ -1,0 +1,16 @@
+<section class="features-box">
+  <div class="features-box__features">
+    <h3 class="features-box__heading">FEATURES</h3>
+    <p *ngFor="let paragraph of paragraphs" class="features-box__paragraph">{{ paragraph }}</p>
+  </div>
+
+  <div class="features-box__includes">
+    <h3 class="features-box__heading">IN THE BOX</h3>
+    <ul class="features-box__list">
+      <li *ngFor="let item of product.includes" class="features-box__list-item">
+        <span class="features-box__qty">{{ item.quantity }}x</span>
+        <span class="features-box__item">{{ item.item }}</span>
+      </li>
+    </ul>
+  </div>
+</section>

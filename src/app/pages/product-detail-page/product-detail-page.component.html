@@ -1,0 +1,30 @@
+<header class="page-header">
+  <app-header></app-header>
+</header>
+
+<main class="product-main">
+  <ng-container *ngIf="product$ | async as product; else notFound">
+    <div class="product-main__back">
+      <button type="button" class="go-back" (click)="goBack()">Go Back</button>
+    </div>
+
+    <app-product-hero [product]="product"></app-product-hero>
+    <app-product-features-box [product]="product"></app-product-features-box>
+    <app-product-gallery [gallery]="product.gallery"></app-product-gallery>
+    <app-related-products [others]="product.others"></app-related-products>
+
+    <app-categories></app-categories>
+    <app-about-section></app-about-section>
+  </ng-container>
+
+  <ng-template #notFound>
+    <div class="product-main__back">
+      <button type="button" class="go-back" (click)="goBack()">Go Back</button>
+    </div>
+    <p class="not-found">Product not found.</p>
+  </ng-template>
+</main>
+
+<footer class="page-footer">
+  <app-footer></app-footer>
+</footer>

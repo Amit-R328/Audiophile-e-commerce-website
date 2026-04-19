@@ -1,0 +1,16 @@
+<section class="related">
+  <h3 class="related__heading">YOU MAY ALSO LIKE</h3>
+  <div class="related__grid">
+    <article *ngFor="let other of others" class="related-card">
+      <div class="related-card__image">
+        <picture>
+          <source media="(min-width: 1024px)" [srcset]="other.image.desktop">
+          <source media="(min-width: 768px)" [srcset]="other.image.tablet">
+          <img [src]="other.image.mobile" [alt]="other.name">
+        </picture>
+      </div>
+      <h4 class="related-card__name">{{ other.name }}</h4>
+      <a class="related-card__cta" [routerLink]="['/product', other.slug]">SEE PRODUCT</a>
+    </article>
+  </div>
+</section>

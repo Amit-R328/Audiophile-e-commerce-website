@@ -1,0 +1,119 @@
+@import '_variables.scss';
+
+:host {
+  display: block;
+  padding: 160px 24px;
+}
+
+.features-box {
+  display: flex;
+  gap: 125px;
+  align-items: flex-start;
+
+  &__features {
+    flex: 1;
+    max-width: 635px;
+  }
+
+  &__includes {
+    flex: 0 0 350px;
+  }
+
+  &__heading {
+    @include h2-style($font-bold);
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1.14px;
+    color: $Black;
+    text-transform: uppercase;
+    margin: 0 0 32px;
+
+    span,
+    & {
+      // accent on FEA-T-URES handled with utility if needed
+    }
+  }
+
+  &__paragraph {
+    @include body($font-regular, $Black);
+    opacity: 0.5;
+    margin: 0 0 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__list-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__qty {
+    font-family: $font-bold;
+    font-size: 15px;
+    line-height: 25px;
+    color: $Orange;
+    flex-shrink: 0;
+  }
+
+  &__item {
+    font-family: $font-regular;
+    font-size: 15px;
+    line-height: 25px;
+    color: $Black;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 1023px) {
+  :host {
+    padding: 120px 24px;
+  }
+
+  .features-box {
+    flex-direction: column;
+    gap: 120px;
+
+    &__includes {
+      flex: 0 0 124px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__heading {
+      width: 339px
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 64px 24px;
+  }
+
+  .features-box {
+    gap: 88px;
+
+    &__includes {
+      display: unset;
+    }
+
+    &__heading {
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.857px;
+    }
+  }
+}

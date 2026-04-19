@@ -1,0 +1,25 @@
+<article class="product-hero">
+  <div class="product-hero__image">
+    <picture>
+      <source media="(min-width: 1024px)" [srcset]="product.image.desktop">
+      <source media="(min-width: 768px)" [srcset]="product.image.tablet">
+      <img [src]="product.image.mobile" [alt]="product.name">
+    </picture>
+  </div>
+
+  <div class="product-hero__info">
+    <p *ngIf="product.new" class="product-hero__tag">NEW PRODUCT</p>
+    <h2 class="product-hero__name">{{ product.name }}</h2>
+    <p class="product-hero__description">{{ product.description }}</p>
+    <p class="product-hero__price">$ {{ product.price | number:'1.0-0' }}</p>
+
+    <div class="product-hero__actions">
+      <div class="quantity">
+        <button type="button" class="quantity__btn" (click)="dec()" aria-label="Decrease quantity">−</button>
+        <span class="quantity__value">{{ quantity }}</span>
+        <button type="button" class="quantity__btn" (click)="inc()" aria-label="Increase quantity">+</button>
+      </div>
+      <button type="button" class="add-to-cart" (click)="addToCart()">ADD TO CART</button>
+    </div>
+  </div>
+</article>

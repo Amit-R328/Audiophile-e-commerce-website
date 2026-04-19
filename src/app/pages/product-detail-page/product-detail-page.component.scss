@@ -1,0 +1,95 @@
+@import '_variables.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: $White;
+}
+
+.page-header {
+  background-color: $Very-Dark-Gray;
+}
+
+.product-main {
+  display: flex;
+  flex-direction: column;
+  padding: 79px 0 200px;
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  &__back {
+    padding: 0 24px;
+  }
+
+  app-categories {
+    margin-bottom: 82px;
+  }
+}
+
+.go-back {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: $font-medium;
+  font-size: 15px;
+  line-height: 25px;
+  color: $Black;
+  opacity: 0.5;
+  margin-bottom: 56px;
+
+  &:hover {
+    color: $Orange;
+    opacity: 1;
+  }
+}
+
+.not-found {
+  text-align: center;
+  font-family: $font-bold;
+  font-size: 28px;
+  padding: 80px 24px;
+}
+
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 22.813rem;
+  background-color: $Very-Dark-Gray;
+  justify-content: center;
+}
+
+@media (max-width: 1023px) {
+  .product-main {
+    padding: 33px 0 96px;
+
+    &__back {
+      padding: 0 40px;
+    }
+  }
+
+  .go-back {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-main {
+    gap: 24px;
+    padding: 16px 0 96px;
+
+    app-categories {
+      margin-top: 96px;
+    }
+
+    app-about-section ::ng-deep .audiophile-about {
+      padding: 0 24px 0;
+    }
+
+    &__back {
+      padding: 0 24px;
+    }
+  }
+}

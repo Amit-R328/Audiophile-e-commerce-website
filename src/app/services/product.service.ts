@@ -29,6 +29,12 @@ export class ProductService {
     );
   }
 
+  getBySlug(slug: string): Observable<Product | undefined> {
+    return this.getAll().pipe(
+      map(products => products.find(p => p.slug === slug))
+    );
+  }
+
   private normalizePaths(product: Product): Product {
     return {
       ...product,
