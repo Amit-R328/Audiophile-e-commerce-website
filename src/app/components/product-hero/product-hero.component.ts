@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-hero',
@@ -10,6 +11,8 @@ export class ProductHeroComponent {
   @Input() product!: Product;
   quantity = 1;
 
+  constructor(private cart: CartService) {}
+
   inc(): void {
     this.quantity++;
   }
@@ -19,7 +22,7 @@ export class ProductHeroComponent {
   }
 
   addToCart(): void {
-    // Cart functionality is a separate task — placeholder for now.
-    console.log(`Add to cart: ${this.product.slug} × ${this.quantity}`);
+    this.cart.add(this.product, this.quantity);
+    this.quantity = 1;
   }
 }

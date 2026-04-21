@@ -1,4 +1,4 @@
-<button class="navbar-cart-btn">
+<button class="navbar-cart-btn" type="button" (click)="toggle()" aria-label="Cart">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -13,4 +13,7 @@
       fill="white"
     />
   </svg>
+  <span *ngIf="count$ | async as count" class="navbar-cart-btn__badge">{{ count }}</span>
 </button>
+
+<app-cart-modal *ngIf="isOpen" (close)="close()"></app-cart-modal>

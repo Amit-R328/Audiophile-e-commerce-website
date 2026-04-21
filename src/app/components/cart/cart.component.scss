@@ -2,13 +2,32 @@
 
 :host {
     margin-bottom: 6px;
-    button {
+
+    .navbar-cart-btn {
         background-color: transparent;
         border: none;
         cursor: pointer;
-    
+        position: relative;
+
         svg {
             flex-shrink: 0;
+        }
+
+        &__badge {
+            position: absolute;
+            top: -4px;
+            right: -8px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 5px;
+            border-radius: 9px;
+            background-color: $Orange;
+            color: $White;
+            font-family: $font-bold;
+            font-size: 11px;
+            line-height: 18px;
+            text-align: center;
+            box-sizing: border-box;
         }
     }
 }

@@ -22,6 +22,7 @@ import { ProductHeroComponent } from './components/product-hero/product-hero.com
 import { ProductFeaturesBoxComponent } from './components/product-features-box/product-features-box.component';
 import { ProductGalleryComponent } from './components/product-gallery/product-gallery.component';
 import { RelatedProductsComponent } from './components/related-products/related-products.component';
+import { CartModalComponent } from './components/cart-modal/cart-modal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { RelatedProductsComponent } from './components/related-products/related-
     ProductFeaturesBoxComponent,
     ProductGalleryComponent,
     RelatedProductsComponent,
+    CartModalComponent,
   ],
   imports: [
     BrowserModule,

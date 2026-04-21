@@ -1,0 +1,48 @@
+<div class="backdrop" (click)="onBackdropClick()">
+  <div class="modal" role="dialog" aria-label="Shopping cart" (click)="onModalClick($event)">
+    <ng-container *ngIf="items$ | async as items">
+      <header class="modal__header">
+        <h3 class="modal__heading">CART ({{ items.length }})</h3>
+        <button
+          *ngIf="items.length"
+          type="button"
+          class="modal__remove-all"
+          (click)="removeAll()">
+          Remove all
+        </button>
+      </header>
+
+      <div *ngIf="!items.length" class="modal__empty">
+        <p>Your cart is empty.</p>
+      </div>
+
+      <ul *ngIf="items.length" class="modal__items">
+        <li *ngFor="let item of items" class="cart-item">
+          <img class="cart-item__image" [src]="item.image.mobile" [alt]="item.shortName">
+          <div class="cart-item__info">
+            <p class="cart-item__name">{{ item.shortName }}</p>
+            <p class="cart-item__price">$ {{ item.price | number:'1.0-0' }}</p>
+          </div>
+          <div class="quantity">
+            <button type="button" class="quantity__btn" (click)="dec(item)" aria-label="Decrease quantity">−</button>
+            <span class="quantity__value">{{ item.quantity }}</span>
+            <button type="button" class="quantity__btn" (click)="inc(item)" aria-label="Increase quantity">+</button>
+          </div>
+        </li>
+      </ul>
+
+      <div *ngIf="items.length" class="modal__total">
+        <span class="modal__total-label">TOTAL</span>
+        <span class="modal__total-value">$ {{ total$ | async | number:'1.0-0' }}</span>
+      </div>
+
+      <button
+        *ngIf="items.length"
+        type="button"
+        class="modal__checkout"
+        (click)="checkout()">
+        CHECKOUT
+      </button>
+    </ng-container>
+  </div>
+</div>
