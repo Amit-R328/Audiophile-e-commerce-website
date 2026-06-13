@@ -3,24 +3,36 @@
 </header>
 
 <main class="product-main">
-  <ng-container *ngIf="product$ | async as product; else notFound">
+  <ng-container *ngIf="view$ | async as view">
     <div class="product-main__back">
       <button type="button" class="go-back" (click)="goBack()">Go Back</button>
     </div>
 
-    <app-product-hero [product]="product"></app-product-hero>
-    <app-product-features-box [product]="product"></app-product-features-box>
-    <app-product-gallery [gallery]="product.gallery"></app-product-gallery>
-    <app-related-products [others]="product.others"></app-related-products>
+    <ng-container [ngSwitch]="view.status">
+      <!-- Request finished -->
+      <ng-container *ngSwitchCase="'loaded'">
+        <ng-container *ngIf="view.product as product; else notFound">
+          <app-product-hero [product]="product"></app-product-hero>
+          <app-product-features-box [product]="product"></app-product-features-box>
+          <app-product-gallery [gallery]="product.gallery"></app-product-gallery>
+          <app-related-products [others]="product.others"></app-related-products>
 
-    <app-categories></app-categories>
-    <app-about-section></app-about-section>
+          <app-categories></app-categories>
+          <app-about-section></app-about-section>
+        </ng-container>
+      </ng-container>
+
+      <!-- Request in flight (covers Render cold starts) -->
+      <p *ngSwitchCase="'loading'" class="not-found">Loading…</p>
+
+      <!-- Request failed -->
+      <p *ngSwitchCase="'error'" class="not-found">
+        Couldn&rsquo;t load this product. Please try again in a moment.
+      </p>
+    </ng-container>
   </ng-container>
 
   <ng-template #notFound>
-    <div class="product-main__back">
-      <button type="button" class="go-back" (click)="goBack()">Go Back</button>
-    </div>
     <p class="not-found">Product not found.</p>
   </ng-template>
 </main>

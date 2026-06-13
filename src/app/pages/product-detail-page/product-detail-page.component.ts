@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, startWith, switchMap, tap } from 'rxjs/operators';
 import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
+
+interface ProductView {
+  status: 'loading' | 'loaded' | 'error';
+  product?: Product;
+}
 
 @Component({
   selector: 'app-product-detail-page',
@@ -12,7 +17,7 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product-detail-page.component.scss']
 })
 export class ProductDetailPageComponent implements OnInit {
-  product$!: Observable<Product | undefined>;
+  view$!: Observable<ProductView>;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +26,18 @@ export class ProductDetailPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.product$ = this.route.paramMap.pipe(
+    this.view$ = this.route.paramMap.pipe(
       tap(() => window.scrollTo({ top: 0, behavior: 'auto' })),
-      switchMap((params: any) => this.productService.getBySlug(params.get('slug') ?? ''))
+      switchMap((params: any) =>
+        this.productService.getBySlug(params.get('slug') ?? '').pipe(
+          // Once the request resolves we know whether the product exists.
+          map((product): ProductView => ({ status: 'loaded', product })),
+          // Show a loading state until the (possibly slow/cold-start) request returns,
+          // instead of flashing "Product not found".
+          startWith({ status: 'loading' } as ProductView),
+          catchError(() => of<ProductView>({ status: 'error' }))
+        )
+      )
     );
   }
 
