@@ -1,0 +1,17 @@
+# Netlify configuration for the Audiophile Angular frontend.
+
+[build]
+  # Runs the production build (defaultConfiguration is "production" in angular.json).
+  command = "npm run build"
+  # The browser builder outputs the compiled SPA here.
+  publish = "dist/audiophile-e-commerce-website"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback: serve index.html for any path so Angular's client-side router
+# can handle deep links like /checkout or /category/headphones on refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
