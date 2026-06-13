@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartItem } from '../../models/cart-item.model';
 import { CartService } from '../../services/cart.service';
@@ -15,7 +16,7 @@ export class CartModalComponent {
   readonly count$: Observable<number> = this.cart.count$;
   readonly total$: Observable<number> = this.cart.total$;
 
-  constructor(private cart: CartService) {}
+  constructor(private cart: CartService, private router: Router) {}
 
   inc(item: CartItem): void {
     this.cart.updateQuantity(item.slug, item.quantity + 1);
@@ -39,7 +40,7 @@ export class CartModalComponent {
   }
 
   checkout(): void {
-    // Checkout page is a separate task
-    console.log('Checkout clicked');
+    this.router.navigate(['/checkout']);
+    this.close.emit();
   }
 }

@@ -1,0 +1,199 @@
+<header class="page-header">
+  <app-header></app-header>
+</header>
+
+<main class="checkout">
+  <div class="checkout__wrap">
+    <button type="button" class="go-back" (click)="goBack()">Go Back</button>
+
+    <form
+      class="checkout__grid"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      novalidate>
+
+      <section class="card form">
+        <h1 class="form__title">Checkout</h1>
+
+        <!-- Billing Details -->
+        <fieldset class="section">
+          <legend class="section__heading">Billing Details</legend>
+          <div class="fields">
+            <div class="field" [class.field--invalid]="isInvalid('name')">
+              <div class="field__label-row">
+                <label class="field__label" for="name">Name</label>
+                <span class="field__error" *ngIf="isInvalid('name')">Wrong format</span>
+              </div>
+              <input id="name" type="text" formControlName="name" placeholder="Alexei Ward" autocomplete="name">
+            </div>
+
+            <div class="field" [class.field--invalid]="isInvalid('email')">
+              <div class="field__label-row">
+                <label class="field__label" for="email">Email Address</label>
+                <span class="field__error" *ngIf="isInvalid('email')">Wrong format</span>
+              </div>
+              <input id="email" type="email" formControlName="email" placeholder="alexei@mail.com" autocomplete="email">
+            </div>
+
+            <div class="field" [class.field--invalid]="isInvalid('phone')">
+              <div class="field__label-row">
+                <label class="field__label" for="phone">Phone Number</label>
+                <span class="field__error" *ngIf="isInvalid('phone')">Wrong format</span>
+              </div>
+              <input id="phone" type="tel" formControlName="phone" placeholder="+1 202-555-0136" autocomplete="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Shipping Info -->
+        <fieldset class="section">
+          <legend class="section__heading">Shipping Info</legend>
+          <div class="fields">
+            <div class="field field--full" [class.field--invalid]="isInvalid('address')">
+              <div class="field__label-row">
+                <label class="field__label" for="address">Your Address</label>
+                <span class="field__error" *ngIf="isInvalid('address')">Wrong format</span>
+              </div>
+              <input id="address" type="text" formControlName="address" placeholder="1137 Williams Avenue" autocomplete="street-address">
+            </div>
+
+            <div class="field" [class.field--invalid]="isInvalid('zip')">
+              <div class="field__label-row">
+                <label class="field__label" for="zip">ZIP Code</label>
+                <span class="field__error" *ngIf="isInvalid('zip')">Wrong format</span>
+              </div>
+              <input id="zip" type="text" formControlName="zip" placeholder="10001" autocomplete="postal-code">
+            </div>
+
+            <div class="field" [class.field--invalid]="isInvalid('city')">
+              <div class="field__label-row">
+                <label class="field__label" for="city">City</label>
+                <span class="field__error" *ngIf="isInvalid('city')">Wrong format</span>
+              </div>
+              <input id="city" type="text" formControlName="city" placeholder="New York" autocomplete="address-level2">
+            </div>
+
+            <div class="field" [class.field--invalid]="isInvalid('country')">
+              <div class="field__label-row">
+                <label class="field__label" for="country">Country</label>
+                <span class="field__error" *ngIf="isInvalid('country')">Wrong format</span>
+              </div>
+              <input id="country" type="text" formControlName="country" placeholder="United States" autocomplete="country-name">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Payment Details -->
+        <fieldset class="section">
+          <legend class="section__heading">Payment Details</legend>
+          <div class="fields">
+            <div class="field field--label-only">
+              <label class="field__label">Payment Method</label>
+            </div>
+
+            <div class="field field--radios">
+              <label class="radio"
+                     [class.radio--active]="paymentMethod === 'e-money'">
+                <input type="radio" formControlName="paymentMethod" value="e-money">
+                <span class="radio__dot" aria-hidden="true"></span>
+                <span class="radio__label">e-Money</span>
+              </label>
+
+              <label class="radio"
+                     [class.radio--active]="paymentMethod === 'cash'">
+                <input type="radio" formControlName="paymentMethod" value="cash">
+                <span class="radio__dot" aria-hidden="true"></span>
+                <span class="radio__label">Cash on Delivery</span>
+              </label>
+            </div>
+
+            <ng-container *ngIf="paymentMethod === 'e-money'">
+              <div class="field" [class.field--invalid]="isInvalid('eMoneyNumber')">
+                <div class="field__label-row">
+                  <label class="field__label" for="eMoneyNumber">e-Money Number</label>
+                  <span class="field__error" *ngIf="isInvalid('eMoneyNumber')">Wrong format</span>
+                </div>
+                <input id="eMoneyNumber" type="text" inputmode="numeric" formControlName="eMoneyNumber" placeholder="238521993">
+              </div>
+
+              <div class="field" [class.field--invalid]="isInvalid('eMoneyPin')">
+                <div class="field__label-row">
+                  <label class="field__label" for="eMoneyPin">e-Money PIN</label>
+                  <span class="field__error" *ngIf="isInvalid('eMoneyPin')">Wrong format</span>
+                </div>
+                <input id="eMoneyPin" type="password" inputmode="numeric" formControlName="eMoneyPin" placeholder="6891">
+              </div>
+            </ng-container>
+
+            <div class="cash-note field--full" *ngIf="paymentMethod === 'cash'">
+              <svg class="cash-note__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M24 46c12.15 0 22-9.85 22-22S36.15 2 24 2 2 11.85 2 24s9.85 22 22 22Z" stroke="#D87D4A" stroke-width="2"/>
+                <path d="M18 20a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM30 34a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" fill="#D87D4A"/>
+                <path d="M32 14 16 34" stroke="#D87D4A" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <p class="cash-note__text">
+                The &lsquo;Cash on Delivery&rsquo; option enables you to pay in cash upon delivery
+                to your doorstep. Just make sure your address is correct so that your order will not
+                be cancelled.
+              </p>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+
+      <aside class="card summary">
+        <h2 class="summary__title">Summary</h2>
+
+        <p *ngIf="!items.length" class="summary__empty">Your cart is empty.</p>
+
+        <ul *ngIf="items.length" class="summary__items">
+          <li *ngFor="let item of items" class="summary-item">
+            <img class="summary-item__image" [src]="item.image.mobile" [alt]="item.shortName">
+            <div class="summary-item__info">
+              <p class="summary-item__name">{{ item.shortName }}</p>
+              <p class="summary-item__price">$ {{ item.price | number:'1.0-0' }}</p>
+            </div>
+            <span class="summary-item__qty">x{{ item.quantity }}</span>
+          </li>
+        </ul>
+
+        <dl class="totals">
+          <div class="totals__row">
+            <dt>Total</dt>
+            <dd>$ {{ subtotal | number:'1.0-0' }}</dd>
+          </div>
+          <div class="totals__row">
+            <dt>Shipping</dt>
+            <dd>$ {{ shipping | number:'1.0-0' }}</dd>
+          </div>
+          <div class="totals__row">
+            <dt>VAT (included)</dt>
+            <dd>$ {{ vat | number:'1.0-0' }}</dd>
+          </div>
+          <div class="totals__row totals__row--grand">
+            <dt>Grand Total</dt>
+            <dd>$ {{ grandTotal | number:'1.0-0' }}</dd>
+          </div>
+        </dl>
+
+        <button
+          type="submit"
+          class="summary__submit"
+          [disabled]="!items.length">
+          Continue &amp; Pay
+        </button>
+      </aside>
+    </form>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <app-footer></app-footer>
+</footer>
+
+<app-order-confirmation
+  *ngIf="orderConfirmed"
+  [items]="orderedItems"
+  [grandTotal]="orderedTotal"
+  (backToHome)="backToHome()">
+</app-order-confirmation>

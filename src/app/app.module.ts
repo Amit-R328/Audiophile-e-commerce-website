@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,6 +25,7 @@ import { ProductFeaturesBoxComponent } from './components/product-features-box/p
 import { ProductGalleryComponent } from './components/product-gallery/product-gallery.component';
 import { RelatedProductsComponent } from './components/related-products/related-products.component';
 import { CartModalComponent } from './components/cart-modal/cart-modal.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +49,13 @@ import { CartModalComponent } from './components/cart-modal/cart-modal.component
     ProductGalleryComponent,
     RelatedProductsComponent,
     CartModalComponent,
+    OrderConfirmationComponent,
+    CheckoutPageComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

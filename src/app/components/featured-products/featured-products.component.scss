@@ -228,8 +228,10 @@
         flex-shrink: 0;
 
         .circles {
-          width: 852px;
+          width: 944px;
           max-width: none;
+          top: 50%;
+          left: 46%;
         }
 
         img:not(.circles) {

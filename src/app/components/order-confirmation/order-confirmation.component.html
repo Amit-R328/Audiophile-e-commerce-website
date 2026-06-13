@@ -1,0 +1,54 @@
+<div class="backdrop" (click)="onBackToHome()">
+  <div
+    class="modal"
+    role="dialog"
+    aria-labelledby="order-confirmation-heading"
+    (click)="onModalClick($event)">
+
+    <span class="modal__icon" aria-hidden="true">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="32" fill="#D87D4A"/>
+        <path d="M20.75 33.25 28 40.5l15.25-15.25" stroke="#FFFFFF" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+
+    <h2 id="order-confirmation-heading" class="modal__heading">Thank you<br>for your order</h2>
+    <p class="modal__subtext">You will receive an email confirmation shortly.</p>
+
+    <div class="order">
+      <div class="order__items">
+        <ul class="order__list">
+          <li *ngFor="let item of visibleItems" class="order-item">
+            <img class="order-item__image" [src]="item.image.mobile" [alt]="item.shortName">
+            <div class="order-item__info">
+              <p class="order-item__name">{{ item.shortName }}</p>
+              <p class="order-item__price">$ {{ item.price | number:'1.0-0' }}</p>
+            </div>
+            <span class="order-item__qty">x{{ item.quantity }}</span>
+          </li>
+        </ul>
+
+        <button
+          *ngIf="otherCount > 0"
+          type="button"
+          class="order__toggle"
+          (click)="toggle()">
+          <ng-container *ngIf="!expanded">
+            and {{ otherCount }} other item{{ otherCount > 1 ? 's' : '' }}
+          </ng-container>
+          <ng-container *ngIf="expanded">View less</ng-container>
+        </button>
+      </div>
+
+      <div class="order__total">
+        <span class="order__total-label">Grand Total</span>
+        <span class="order__total-value">$ {{ grandTotal | number:'1.0-0' }}</span>
+      </div>
+    </div>
+
+    <button type="button" class="modal__home" (click)="onBackToHome()">
+      Back to Home
+    </button>
+  </div>
+</div>
