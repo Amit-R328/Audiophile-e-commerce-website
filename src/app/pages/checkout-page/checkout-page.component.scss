@@ -417,7 +417,11 @@ $border: #CFCFCF;
 /* ---------- footer ---------- */
 
 .page-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 22.813rem;
   background-color: $Very-Dark-Gray;
+  justify-content: center;
 }
 
 /* ---------- tablet (≥768px) ---------- */
@@ -462,7 +466,10 @@ $border: #CFCFCF;
   }
 
   .field--label-only {
-    align-self: center;
+    /* Align "Payment Method" with the first radio (e-Money), not centered
+       between both radios. 16px ≈ centers the label within the 56px radio. */
+    align-self: start;
+    padding-top: 16px;
   }
 
   .cash-note.field--full {
