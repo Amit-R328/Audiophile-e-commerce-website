@@ -11,7 +11,7 @@
         <div class="product-info">
             <h1>{{ featuredProducts[0].title }}</h1>
             <p>{{ featuredProducts[0].description }}</p>
-            <button class="btn">SEE PRODUCT</button>
+            <button class="btn" [routerLink]="featuredProducts[0].link">SEE PRODUCT</button>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         </picture>
         <div class="product-info">
             <h2>{{ featuredProducts[1].title }}</h2>
-            <button class="btn btn-outline">SEE PRODUCT</button>
+            <button class="btn btn-outline" [routerLink]="featuredProducts[1].link">SEE PRODUCT</button>
         </div>
     </div>
 
@@ -38,7 +38,7 @@
         <div class="product-info">
             <div class="inner-wrapper-info">
                 <h2>{{ featuredProducts[2].title }}</h2>
-                <button class="btn btn-outline">SEE PRODUCT</button>
+                <button class="btn btn-outline" [routerLink]="featuredProducts[2].link">SEE PRODUCT</button>
             </div>
         </div>
     </div>

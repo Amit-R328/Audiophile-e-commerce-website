@@ -11,7 +11,7 @@ export class FeaturedProductsComponent implements OnInit {
     {
       title: 'ZX9 SPEAKER',
       description: 'Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.',
-      link: '/products/zx9-speaker', 
+      link: '/product/zx9-speaker',
       images: {
         desktop: 'https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452035/home/desktop/image-speaker-zx9_qklcmp.png',
         tablet: 'https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452044/home/tablet/image-speaker-zx9_wl6drh.png',
@@ -21,7 +21,7 @@ export class FeaturedProductsComponent implements OnInit {
     },
     {
       title: 'ZX7 SPEAKER',
-      link: '/products/zx7-speaker',
+      link: '/product/zx7-speaker',
       images: {
         desktop: 'https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452034/home/desktop/image-speaker-zx7_gh1s4p.jpg',
         tablet: 'https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452043/home/tablet/image-speaker-zx7_tsu8ep.jpg',
@@ -30,7 +30,7 @@ export class FeaturedProductsComponent implements OnInit {
     },
     {
       title: 'YX1 EARPHONES',
-      link: '/products/yx1-earphones',
+      link: '/product/yx1-earphones',
       images: {
         desktop: 'https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452032/home/desktop/image-earphones-yx1_ad541c.jpg',
         tablet: 'https://res.cloudinary.com/dcbbqlssh/image/upload/f_auto,q_auto/v1776452041/home/tablet/image-earphones-yx1_o3pwbv.jpg',
